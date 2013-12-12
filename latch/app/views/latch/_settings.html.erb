@@ -1,0 +1,15 @@
+<fieldset><legend>Latch Settings</legend>
+  <div class="box tabular settings">
+    <p>
+      <%= content_tag :label, 'Latch Application Id' %>
+      <%= text_field_tag 'settings[latch_appid]', settings[:latch_appid], :size => 40 %>
+      <em class="info">Leave empty to disable</em>
+    </p>
+
+    <p>
+      <%= content_tag :label, 'Latch Application Secret' %>
+      <%= text_field_tag 'settings[latch_secret]', settings[:latch_secret], :size => 40 %>
+      <em class="info">Leave empty to disable</em>
+    </p>
+  </div>
+</fieldset>

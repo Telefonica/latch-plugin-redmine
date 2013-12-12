@@ -1,0 +1,22 @@
+
+<% if @user.logged? %>
+  <h2>Latch User Account</h2>
+
+  <% if @allowunpairing %>
+     <p>You are currently paired with Latch, if you want to unpair your account just clicke the button below.</p>
+    <%= form_tag(:action => 'unpair', :method => "post") do %>
+        <%= submit_tag("Unpair Latch Account") %>
+    <% end %>
+
+  <% else %>
+     <p>You can pair your account with Latch application to get an extra level of security. Visit <a href='https://latch.elevenpaths.com'>https://latch.elevenpaths.com</a> for more information about this product.</p>
+      <%= form_tag(:action => 'pair', :method => "post") do %>
+          <%= label_tag(:token, "Introduce your Token here:") %>
+          <%= text_field_tag(:token) %>
+          <%= submit_tag("Pair with Latch") %>
+      <% end %>
+  <% end %>
+
+<%  end  %>
+
+

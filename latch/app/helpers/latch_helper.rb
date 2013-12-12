@@ -1,0 +1,2 @@
+module LatchHelper
+end
