@@ -55,8 +55,8 @@ class LatchAccountsController < ApplicationController
 
 
     pairResponse = api.unpair(account_id)
+    @latch.destroy
     if (pairResponse.error == nil)
-      @latch.destroy
       flash[:notice] = 'Your account has been succesfully unpaired. Keep in mind that you can pair it again at any time.'
     else
       flash[:error] = 'Some problems encountered. Please try again later or contact administration team'
