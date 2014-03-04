@@ -6,11 +6,11 @@
 
 * Ruby, RubyGems and Ruby on Rails installed your server.
 
-* To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com"https://latch.elevenpaths.com"). On the upper right side, click on **"Developer area"**.
+* To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com). On the upper right side, click on **"Developer area"**.
 
 
 ##DOWNLOADING THE REDMINE PLUGIN
- * When the account is activated, the user will be able to create applications with Latch and access to developer documentation, including existing SDKs and plugins. The user has to access again to [Developer area](https://latch.elevenpaths.com/www/developerArea"https://latch.elevenpaths.com/www/developerArea"), and browse his applications from **"My applications"** section in the side menu.
+ * When the account is activated, the user will be able to create applications with Latch and access to developer documentation, including existing SDKs and plugins. The user has to access again to [Developer area](https://latch.elevenpaths.com/www/developerArea), and browse his applications from **"My applications"** section in the side menu.
 
 * When creating an application, two fundamental fields are shown: **"Application ID"** and **"Secret"**, keep these for later use. There are some additional parameters to be chosen, as the application icon (that will be shown in Latch) and whether the application will support OTP  (One Time Password) or not.
 
@@ -26,7 +26,7 @@
 
 
 ##UNINSTALLING THE PLUGIN IN REDMINE
-* Go to Latch [Developer area](https://latch.elevenpaths.com/www/developerArea"https://latch.elevenpaths.com/www/developerArea") and browse applications from **"My applications"** section in the side menu. Click the "Remove Application" button.
+* Go to Latch [Developer area](https://latch.elevenpaths.com/www/developerArea) and browse applications from **"My applications"** section in the side menu. Click the "Remove Application" button.
 
 * Remove the **"latch"** folder inside the **"plugins"** folder of your redmine.
 
