@@ -77,8 +77,9 @@ module SharedBeforeActions
       @user = User.find(User.current.id)
       if @user && @user.logged?
         latch = LatchAccount.where(user_id: User.current.id).take(1)
-        if :is_mandatory_mode_enabled? && latch.length == 0 && (!request.original_fullpath.include? '/latch')
-          redirect_to '/latch'
+        if :is_mandatory_mode_enabled? && latch.length == 0 &&
+            (!request.original_fullpath.include? url_for action: :index, controller: :latch_accounts, only_path: true)
+          redirect_to controller: :latch_accounts, action: :index
         end
       end
     end
