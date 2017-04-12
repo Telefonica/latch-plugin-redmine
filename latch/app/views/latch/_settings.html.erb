@@ -11,5 +11,10 @@
       <%= text_field_tag 'settings[latch_secret]', settings[:latch_secret], :size => 40 %>
       <em class="info">Leave empty to disable</em>
     </p>
+
+    <p>
+      <%= content_tag :label, 'Latch Mandatory Mode' %>
+      <%= check_box_tag 'settings[latch_mandatory]', settings[:latch_mandatory], settings[:latch_mandatory] %>
+    </p>
   </div>
 </fieldset>

@@ -3,7 +3,6 @@ require_relative '../api/Latch'
 class LatchAccountsController < ApplicationController
   unloadable
 
-
   def index
     @user = User.find(User.current.id)
     if (!@user.logged?)
@@ -66,3 +65,34 @@ class LatchAccountsController < ApplicationController
 
 
 end
+
+
+module SharedBeforeActions
+  def self.included(base)
+    base.before_action :redirect_to_latch_if_necessary, :except => [:logout]
+  end
+
+  def redirect_to_latch_if_necessary
+    if is_mandatory_mode_enabled
+      @user = User.find(User.current.id)
+      if @user && @user.logged?
+        latch = LatchAccount.where(user_id: User.current.id).take(1)
+        if :is_mandatory_mode_enabled? && latch.length == 0 &&
+            (!request.original_fullpath.include? url_for action: :index, controller: :latch_accounts, only_path: true)
+          redirect_to controller: :latch_accounts, action: :index
+        end
+      end
+    end
+  end
+
+  def is_mandatory_mode_enabled
+    appid = Setting.plugin_latch['latch_appid']
+    secret = Setting.plugin_latch['latch_secret']
+    mandatory = Setting.plugin_latch['latch_mandatory']
+
+    !appid.blank? && !secret.blank? && mandatory
+  end
+
+end
+
+ActionController::Base.send(:include, SharedBeforeActions)
